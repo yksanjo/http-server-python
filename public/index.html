@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Server Demo - Networking Fundamentals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 HTTP Server Demo</h1>
+            <p class="subtitle">Networking Fundamentals Demonstration</p>
+        </header>
+
+        <main>
+            <!-- Server Time Section -->
+            <section class="card">
+                <h2>⏰ Server Time</h2>
+                <p>Demonstrates a simple GET request to fetch data from the server.</p>
+                <button id="btn-time" onclick="fetchTime()">Get Server Time</button>
+                <div id="time-result" class="result"></div>
+            </section>
+
+            <!-- Users List Section -->
+            <section class="card">
+                <h2>👥 List All Users</h2>
+                <p>Fetches all users from the API using GET /api/users</p>
+                <button id="btn-users" onclick="fetchUsers()">Fetch Users</button>
+                <div id="users-result" class="result"></div>
+            </section>
+
+            <!-- Get User by ID Section -->
+            <section class="card">
+                <h2>🔍 Get User by ID</h2>
+                <p>Fetch a specific user using GET /api/users/&lt;id&gt;</p>
+                <div class="input-group">
+                    <input type="number" id="user-id" placeholder="Enter user ID (1, 2, 3...)" min="1">
+                    <button id="btn-user" onclick="fetchUserById()">Get User</button>
+                </div>
+                <div id="user-result" class="result"></div>
+            </section>
+
+            <!-- Create User Section -->
+            <section class="card">
+                <h2>➕ Create New User</h2>
+                <p>Create a user using POST /api/users with JSON body</p>
+                <form id="create-user-form" onsubmit="createUser(event)">
+                    <div class="form-group">
+                        <label for="new-name">Name:</label>
+                        <input type="text" id="new-name" placeholder="Enter full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-email">Email:</label>
+                        <input type="email" id="new-email" placeholder="Enter email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-role">Role:</label>
+                        <select id="new-role">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                    </div>
+                    <button type="submit">Create User</button>
+                </form>
+                <div id="create-result" class="result"></div>
+            </section>
+
+            <!-- HTTP Concepts Section -->
+            <section class="card info">
+                <h2>📚 HTTP Concepts Demonstrated</h2>
+                <ul>
+                    <li><strong>GET Requests:</strong> Used to retrieve data from the server (time, users)</li>
+                    <li><strong>POST Requests:</strong> Used to create new resources (new user)</li>
+                    <li><strong>JSON:</strong> Data format for API communication</li>
+                    <li><strong>Status Codes:</strong> 200 (OK), 201 (Created), 404 (Not Found), etc.</li>
+                    <li><strong>REST API:</strong> Resource-based URL design</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with Python's http.server module | <a href="https://docs.python.org/3/library/http.server.html" target="_blank">Documentation</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
